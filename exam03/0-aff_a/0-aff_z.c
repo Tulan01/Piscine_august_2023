@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   0-aff_z.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pchowdhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/10 11:41:24 by pchowdhu          #+#    #+#             */
-/*   Updated: 2023/08/14 14:06:43 by pchowdhu         ###   ########.fr       */
+/*   Created: 2023/08/14 14:48:27 by pchowdhu          #+#    #+#             */
+/*   Updated: 2023/08/14 15:19:35 by pchowdhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int	i;
+#include<unistd.h>
 
-	i = 0;
-	while (str[i])
-	{
-		i++;
-	}
-	return (i);
+int main(int argc, char *av[]){
+	 int i ;
+	 i = 0;
+	 
+   
+ 	if(argc == 2){
+		while(av[1][i]){
+			if(av[1][i] == 'a'){
+				write(1, &av[1][i], 1);
+				break;
+    				}
+			i++;
+		}
+		write(1,"\n",1);
+       }
+       else {
+	write(1,"a",1);
+       write(1,"\n",1);
+       }
+       return(0);
+
 }
 
-/*#include<unistd.h>
-#include<stdio.h>
-#include<string.h>
-
-int main () {
-     char s1[] = "42 like it";
-     int x;
-      x = ft_strlen(s1);
-      //y = strlen(s1);
-      printf("%d", x);
-}*/

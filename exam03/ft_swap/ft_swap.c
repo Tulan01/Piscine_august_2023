@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pchowdhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/10 11:41:24 by pchowdhu          #+#    #+#             */
-/*   Updated: 2023/08/14 14:06:43 by pchowdhu         ###   ########.fr       */
+/*   Created: 2023/08/14 15:36:03 by pchowdhu          #+#    #+#             */
+/*   Updated: 2023/08/14 15:38:44 by pchowdhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int	i;
+#include<stdio.h>
+#include<unistd.h>
 
-	i = 0;
-	while (str[i])
-	{
-		i++;
-	}
-	return (i);
+void	ft_swap(int *a, int *b){
+      
+          int temp;
+	  temp = *a;
+	  *a = *b;
+	  *b = temp ;
 }
 
-/*#include<unistd.h>
-#include<stdio.h>
-#include<string.h>
 
-int main () {
-     char s1[] = "42 like it";
-     int x;
-      x = ft_strlen(s1);
-      //y = strlen(s1);
-      printf("%d", x);
-}*/
+int main() {
+
+     int a , b;
+     a = 2;
+     b = 3;
+
+    ft_swap(&a,&b);
+
+    printf("%d %d",a,b); 
+
+
+}

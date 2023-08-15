@@ -1,52 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pchowdhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/07 13:11:58 by pchowdhu          #+#    #+#             */
-/*   Updated: 2023/08/11 12:50:50 by pchowdhu         ###   ########.fr       */
+/*   Created: 2023/08/13 14:10:45 by pchowdhu          #+#    #+#             */
+/*   Updated: 2023/08/13 16:02:47 by pchowdhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
-#include<stdio.h>
-
-void	ft_sort_int_tab(int *tab, int size)
+int	ft_is_prime(int nb)
 {
 	int	i;
-	int	j;
-	int	a;
+	int	prime;
 
-	while (i < size - 1)
+	i = 2;
+	prime = 1;
+	if (nb <= 1)
 	{
-		j = i + 1;
-		while (j < size - 1)
-		{
-			if (tab[i] > tab[j])
-			{
-				a = tab [i];
-				tab[i] = tab[j];
-				tab[j] = a;
-			}
-			j++;
-		}
-		i++;
+		prime = 0;
 	}
+	if (nb > 1)
+	{
+		while (i <= nb / 2)
+		{
+			if (nb % i == 0)
+			{
+				prime = 0;
+				break ;
+			}
+			i++;
+		}
+	}
+	return (prime);
 }
 
-/*int     main()
-{
-   int x[6]= {3,2,1,4,5,0};
-   int size = 6;
-   int i = 0;
-    
-
-   ft_sort_int_tab(x,size);
-   i = 0;
-   while(i < 6){
-   printf("%d", x[i]);
-   i++;
- }
-*/
+/*#include<stdio.h>
+int main () {
+ 	
+  printf("for %d -> %d ", 7, ft_is_prime(9));
+}*/

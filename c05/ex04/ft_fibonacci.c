@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pchowdhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/10 11:41:24 by pchowdhu          #+#    #+#             */
-/*   Updated: 2023/08/14 14:06:43 by pchowdhu         ###   ########.fr       */
+/*   Created: 2023/08/12 21:36:34 by pchowdhu          #+#    #+#             */
+/*   Updated: 2023/08/13 15:51:21 by pchowdhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+int	ft_fibonacci(int index)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
+	if (index < 0)
 	{
-		i++;
+		return (-1);
 	}
-	return (i);
+	if (index == 0)
+	{
+		return (0);
+	}
+	if (index == 1)
+	{
+		return (1);
+	}
+	return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
 }
 
-/*#include<unistd.h>
-#include<stdio.h>
-#include<string.h>
+/*int main(){
 
-int main () {
-     char s1[] = "42 like it";
-     int x;
-      x = ft_strlen(s1);
-      //y = strlen(s1);
-      printf("%d", x);
+    printf("%d", ft_fibonacci(6));
+
 }*/

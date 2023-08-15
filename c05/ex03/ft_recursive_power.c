@@ -1,47 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_recursive_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pchowdhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/09 16:46:10 by pchowdhu          #+#    #+#             */
-/*   Updated: 2023/08/11 12:14:33 by pchowdhu         ###   ########.fr       */
+/*   Created: 2023/08/12 20:50:53 by pchowdhu          #+#    #+#             */
+/*   Updated: 2023/08/13 15:34:01 by pchowdhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+int	ft_recursive_power(int nb, int power)
 {
-	unsigned int	i;
-	unsigned int	n;
+	int	result;
 
-	i = 0;
-	n = 0;
-	while (dest[i])
+	result = 1;
+	if (power < 0)
 	{
-		i++;
+		return (0);
 	}
-	while (src[n] && n < nb)
+	if (power == 0)
 	{
-		dest[i + n] = src[n];
-		n++;
+		return (1);
 	}
-	dest[i + n] = '\0';
-	return (dest);
+	if (power > 0)
+	{
+		result = nb * ft_recursive_power(nb, (power - 1));
+	}
+	return (result);
 }
-/*#include<unistd.h>
-#include<stdio.h>
-#include <stdlib.h>
-#include <string.h>
+
+/*#include<stdio.h>
 
 int main () {
-    
-	char s1[]= "Hello";
-	char s2[]= "world";
 
-	
-        //int i = 0 ;
-    ft_strncat(s1,s2,3);
-        //strcat(s1,s2);
-printf("%s",s1);
+printf("%d", ft_recursive_power(2,0));
+
 }*/

@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   a.c                                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pchowdhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/10 11:41:24 by pchowdhu          #+#    #+#             */
-/*   Updated: 2023/08/14 14:06:43 by pchowdhu         ###   ########.fr       */
+/*   Created: 2023/08/14 20:06:27 by pchowdhu          #+#    #+#             */
+/*   Updated: 2023/08/14 20:06:33 by pchowdhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include <unistd.h>
+void	last_word(char *str)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
+	int	i = 0;
+	while (str[i] != '\0')
+		i++;
+	i -= 1;
+	while(str[i] == '\t' || str[i] == 32)
+		i--;
+	while (i > 0)
+	{	if(str[i] == 32 || str[i] == '\t')
+			break;
+		i--;
+	}
+	i++;
+	while (str[i] != '\0' && str[i] != 32 && str[i] != '\t')
 	{
+		write(1, &str[i], 1);
 		i++;
 	}
-	return (i);
 }
-
-/*#include<unistd.h>
-#include<stdio.h>
-#include<string.h>
-
-int main () {
-     char s1[] = "42 like it";
-     int x;
-      x = ft_strlen(s1);
-      //y = strlen(s1);
-      printf("%d", x);
-}*/
+int main(int ac, char **av)
+{
+	if (ac == 2)
+		last_word(av[1]);
+	write(1, "\n", 1);
+}

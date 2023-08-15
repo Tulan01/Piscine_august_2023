@@ -1,35 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   rev_print.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pchowdhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/10 11:41:24 by pchowdhu          #+#    #+#             */
-/*   Updated: 2023/08/14 14:06:43 by pchowdhu         ###   ########.fr       */
+/*   Created: 2023/08/14 15:40:51 by pchowdhu          #+#    #+#             */
+/*   Updated: 2023/08/14 15:47:11 by pchowdhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		i++;
-	}
-	return (i);
-}
-
-/*#include<unistd.h>
-#include<stdio.h>
+ #include<unistd.h>
+ #include<stdio.h>
 #include<string.h>
 
+char *ft_rev_print (char *str){
+
+    int i;
+    int len;
+    char temp;
+     
+    i = 0;
+    while (str[i]){
+	    i++;
+    }
+    len = i-1;
+    i = 0;
+    while(i < len){
+          temp = str[i];
+	  str[i]= str[len];
+	  str[len] = temp;
+	  i++;
+	  len--;
+    }
+    return (str);
+}
+
 int main () {
-     char s1[] = "42 like it";
-     int x;
-      x = ft_strlen(s1);
-      //y = strlen(s1);
-      printf("%d", x);
-}*/
+
+   char str[] = "abcd";
+
+    ft_rev_print(str);
+  printf("%s",str);
+}

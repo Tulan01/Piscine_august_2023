@@ -1,47 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pchowdhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/09 16:46:10 by pchowdhu          #+#    #+#             */
-/*   Updated: 2023/08/11 12:14:33 by pchowdhu         ###   ########.fr       */
+/*   Created: 2023/08/12 19:20:29 by pchowdhu          #+#    #+#             */
+/*   Updated: 2023/08/13 15:25:27 by pchowdhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+int	ft_iterative_power(int nb, int power)
 {
-	unsigned int	i;
-	unsigned int	n;
+	int	result;
 
-	i = 0;
-	n = 0;
-	while (dest[i])
+	result = 1;
+	if (power < 0)
 	{
-		i++;
+		return (0);
 	}
-	while (src[n] && n < nb)
+	if (power == 0)
 	{
-		dest[i + n] = src[n];
-		n++;
+		return (1);
 	}
-	dest[i + n] = '\0';
-	return (dest);
+	while (power > 0)
+	{
+		result *= nb;
+		power--;
+	}
+	return (result);
 }
+
 /*#include<unistd.h>
 #include<stdio.h>
-#include <stdlib.h>
-#include <string.h>
+
 
 int main () {
-    
-	char s1[]= "Hello";
-	char s2[]= "world";
 
-	
-        //int i = 0 ;
-    ft_strncat(s1,s2,3);
-        //strcat(s1,s2);
-printf("%s",s1);
+printf("%i", ft_iterative_power(2,3));
+
 }*/

@@ -6,32 +6,52 @@
 /*   By: pchowdhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 19:53:14 by pchowdhu          #+#    #+#             */
-/*   Updated: 2023/08/09 20:54:45 by pchowdhu         ###   ########.fr       */
+/*   Updated: 2023/08/12 17:59:51 by pchowdhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+int	ft_slen(char *src){
+	int	j;
+
+	j = 0;
+	while (src[j])
+	{
+		j++;
+	}
+	return (j);
+}
+
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 
 {
-	int	i;
-	int	n;
+	unsigned int	i;
+	unsigned int	n;
+	unsigned int	slen;
+	unsigned int	dlen;
 
 	i = 0;
 	n = 0;
+	slen = ft_slen(src);
 	while (dest[i])
 	{
 		i++;
 	}
-	if (size > 0)
-	{
-		while (src[n] && n < size)
-		{
-			dest[i + n] = src[n];
-			n++;
-		}
-		dest[i + n] = '\0';
+	dlen = i;
+	if (size == 0 || size <= dlen){
+          return ( slen + size);
 	}
-	return (i + n);
+        else
+	{
+		while (src[n] &&  n < size -dlen -1)
+		{
+			dest[dlen] = src[n];
+			n++;
+			dlen++;
+		}
+		dest[dlen] = '\0';
+ 		return (dlen + slen);
+	}
 }
 
 /*#include<unistd.h>
@@ -41,9 +61,12 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 
 int     main() {
 
-    char s1[] = "hello";
-    char s2[]= "world";
-    int x ;
-    x = ft_strlcat(s1,s2,3);
+    char s1[] = "hellouio";
+    char s2[]= "wore";
+    int x;
+    int y;
+    x = ft_strlcat(s1,s2,9);
+    y = strlcat(s1,s2,9);
     printf("%d\n",x);
+    printf("%d",y);
 }*/

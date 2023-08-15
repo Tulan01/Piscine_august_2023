@@ -1,52 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pchowdhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/07 13:11:58 by pchowdhu          #+#    #+#             */
-/*   Updated: 2023/08/11 12:50:50 by pchowdhu         ###   ########.fr       */
+/*   Created: 2023/08/13 13:59:52 by pchowdhu          #+#    #+#             */
+/*   Updated: 2023/08/13 15:57:01 by pchowdhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
-#include<stdio.h>
-
-void	ft_sort_int_tab(int *tab, int size)
+int	ft_sqrt(int nb)
 {
-	int	i;
-	int	j;
-	int	a;
+	long	index;
+	long	number;
 
-	while (i < size - 1)
+	number = nb;
+	if (number <= 0)
 	{
-		j = i + 1;
-		while (j < size - 1)
-		{
-			if (tab[i] > tab[j])
-			{
-				a = tab [i];
-				tab[i] = tab[j];
-				tab[j] = a;
-			}
-			j++;
-		}
-		i++;
+		return (0);
 	}
+	if (number == 1)
+	{
+		return (1);
+	}
+	index = 2;
+	if (number > 1)
+	{
+		while (index <= number)
+		{
+			if (index * index == number)
+			{
+				return (index);
+			}
+			index ++;
+		}
+	}
+	return (0);
 }
 
-/*int     main()
-{
-   int x[6]= {3,2,1,4,5,0};
-   int size = 6;
-   int i = 0;
-    
+/*int main () {
 
-   ft_sort_int_tab(x,size);
-   i = 0;
-   while(i < 6){
-   printf("%d", x[i]);
-   i++;
- }
-*/
+    printf("Sqr root of %d  is : %d", 49, ft_sqrt(49));
+
+
+}*/

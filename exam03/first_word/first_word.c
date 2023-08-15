@@ -1,52 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
+/*   first_word.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pchowdhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/07 13:11:58 by pchowdhu          #+#    #+#             */
-/*   Updated: 2023/08/11 12:50:50 by pchowdhu         ###   ########.fr       */
+/*   Created: 2023/08/14 15:52:51 by pchowdhu          #+#    #+#             */
+/*   Updated: 2023/08/14 16:03:05 by pchowdhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<unistd.h>
 #include<stdio.h>
 
-void	ft_sort_int_tab(int *tab, int size)
-{
-	int	i;
-	int	j;
-	int	a;
 
-	while (i < size - 1)
-	{
-		j = i + 1;
-		while (j < size - 1)
-		{
-			if (tab[i] > tab[j])
-			{
-				a = tab [i];
-				tab[i] = tab[j];
-				tab[j] = a;
-			}
-			j++;
-		}
+
+
+
+
+
+int main (int argc, char *argv[]){
+      int i = 0;
+
+     if (argc == 2){
+          while( argv[1][i] == ' ' || argv[1][i] == '\t'){
 		i++;
-	}
+	  }
+  	   while (argv[1][i] != '\0' && argv[1][i] != ' ' && argv[1][i] != '\t'){
+ 			write(1, &argv[1][i], 1);
+			i++;
+	   }	   
+  		   }
+	   	write(1,"\n",1);
+    		return (0);
+
+
 }
-
-/*int     main()
-{
-   int x[6]= {3,2,1,4,5,0};
-   int size = 6;
-   int i = 0;
-    
-
-   ft_sort_int_tab(x,size);
-   i = 0;
-   while(i < 6){
-   printf("%d", x[i]);
-   i++;
- }
-*/

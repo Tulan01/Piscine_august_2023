@@ -1,47 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pchowdhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/09 16:46:10 by pchowdhu          #+#    #+#             */
-/*   Updated: 2023/08/11 12:14:33 by pchowdhu         ###   ########.fr       */
+/*   Created: 2023/08/12 18:56:50 by pchowdhu          #+#    #+#             */
+/*   Updated: 2023/08/13 15:29:48 by pchowdhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+int	ft_recursive_factorial(int nb)
 {
-	unsigned int	i;
-	unsigned int	n;
+	int	result;
 
-	i = 0;
-	n = 0;
-	while (dest[i])
+	result = 1;
+	if (nb <= 0)
 	{
-		i++;
+		return (0);
 	}
-	while (src[n] && n < nb)
+	if (nb > 0)
 	{
-		dest[i + n] = src[n];
-		n++;
+		result = nb * ft_recursive_factorial (nb - 1);
 	}
-	dest[i + n] = '\0';
-	return (dest);
+	return (result);
 }
-/*#include<unistd.h>
-#include<stdio.h>
-#include <stdlib.h>
-#include <string.h>
+
+/*#include<stdio.h>
 
 int main () {
-    
-	char s1[]= "Hello";
-	char s2[]= "world";
 
-	
-        //int i = 0 ;
-    ft_strncat(s1,s2,3);
-        //strcat(s1,s2);
-printf("%s",s1);
+printf("%d", ft_recursive_factorial(3));
+
 }*/

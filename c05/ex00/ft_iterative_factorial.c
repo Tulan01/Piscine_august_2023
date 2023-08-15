@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pchowdhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/10 11:41:24 by pchowdhu          #+#    #+#             */
-/*   Updated: 2023/08/14 14:06:43 by pchowdhu         ###   ########.fr       */
+/*   Created: 2023/08/12 18:13:15 by pchowdhu          #+#    #+#             */
+/*   Updated: 2023/08/13 15:19:39 by pchowdhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdio.h>
 
-int	ft_strlen(char *str)
+int	ft_iterative_factorial(int nb)
 {
-	int	i;
+	unsigned int	result;
 
-	i = 0;
-	while (str[i])
+	result = 1;
+	while (nb > 0)
 	{
-		i++;
+		result = nb * result;
+		nb --;
 	}
-	return (i);
+	if (nb < 0)
+	{
+		return (0);
+	}
+	return (result);
 }
 
-/*#include<unistd.h>
-#include<stdio.h>
-#include<string.h>
-
-int main () {
-     char s1[] = "42 like it";
-     int x;
-      x = ft_strlen(s1);
-      //y = strlen(s1);
-      printf("%d", x);
+/*int main (void)
+{
+	printf("%i", ft_iterative_factorial(3));
 }*/

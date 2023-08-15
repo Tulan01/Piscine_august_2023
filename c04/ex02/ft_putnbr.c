@@ -6,11 +6,11 @@
 /*   By: pchowdhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:02:45 by pchowdhu          #+#    #+#             */
-/*   Updated: 2023/08/10 12:08:25 by pchowdhu         ###   ########.fr       */
+/*   Updated: 2023/08/14 14:07:49 by pchowdhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include <unistd.h>
+
+#include<unistd.h>
 
 void	ft_putchar(char c)
 {
@@ -39,7 +39,19 @@ void	ft_putnbr(int nb)
 	else
 		ft_putchar (nb + 48);
 }
+
 /*int main (void)
-{
-	ft_putnbr(4563);
+{	
+    ft_putnbr(42);
+    	ft_putnbr(4563);
+	ft_putchar('\n');
+	ft_putnbr(-2147483648);
+	ft_putchar('\n');
+	ft_putnbr(42);
+	ft_putchar('\n');
+	ft_putnbr(2147483647);
+	ft_putchar('\n');
+	ft_putnbr(5);
+	ft_putchar('\n');
+
 }*/
