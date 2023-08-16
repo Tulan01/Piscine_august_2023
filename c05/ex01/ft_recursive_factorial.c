@@ -6,7 +6,7 @@
 /*   By: pchowdhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 18:56:50 by pchowdhu          #+#    #+#             */
-/*   Updated: 2023/08/13 15:29:48 by pchowdhu         ###   ########.fr       */
+/*   Updated: 2023/08/16 22:00:15 by pchowdhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@ int	ft_recursive_factorial(int nb)
 	int	result;
 
 	result = 1;
-	if (nb <= 0)
+	if (nb < 0)
 	{
 		return (0);
 	}

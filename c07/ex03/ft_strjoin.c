@@ -6,7 +6,7 @@
 /*   By: pchowdhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 14:47:22 by pchowdhu          #+#    #+#             */
-/*   Updated: 2023/08/15 17:30:13 by pchowdhu         ###   ########.fr       */
+/*   Updated: 2023/08/16 20:53:55 by pchowdhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,70 +14,69 @@
 #include<unistd.h>
 #include<stdlib.h>
 
-int ft_strlen(char *str){
+int	ft_strlen(char *str)
+{
+	int	i;
 
-        int i = 0;
-
-   while( str[i]){
-        i++;
-   }	   
-   return(i);
-}
-
-char	*ft_strjoin(int size, char **strs, char *sep){
-          int j = 0;
-	  int len =0;
-	  int fl_len = 0;
-	  int i = 0;
-	  int n;
-
-	  char *tab;
-	  char *d;
-
-	if(size == 0){
-       return ((char *)malloc(sizeof(char)));
+	i = 0;
+	while (str[i])
+	{
+		i++;
 	}
-	else{
-		  while(i < size){
-			 len = ft_strlen(strs[i]);
-			 fl_len = len + ft_strlen(sep);
-			 i++;
-		  }
-	  }	
-       fl_len ++;
-
-       d =(tab =(char *)malloc(fl_len * sizeof(char)));
-
-       if(!d){
-          return (0);
-       }
-       i = 0;
-       n = 0;
-       while(i < size){
-	       j = 0;
-	     while (strs[i][j]){
- 		 tab[n] = strs[i][j];
-		 j++;
-		 n++;
-           	 }
-	      j = 0;
-	     while(sep[j]){
-                tab[n] = sep[j];
-		j++;
-		n++;
-	        }
-	   i++;
-        }
-     tab[n] = '\n';
-
-    return ( tab);
-
-
+	return (i);
 }
 
+char	*ft_calvalue(char **strs, char *result, char *sep, int size)
+{
+	int	i;
+	int	pos;
+	int	j;
 
+	pos = 0;
+	while (i < size)
+	{
+		j = 0;
+		while (strs[i][j])
+		{
+			result[pos++] = strs[i][j++];
+		}
+		if (i < size - 1)
+		{
+			j = 0;
+			while (sep[j])
+			{
+				result[pos++] = sep[j++];
+			}
+		}
+		i++;
+	}
+	result[pos] = '\0';
+	return (result);
+}
 
-int main () {
+char	*ft_strjoin(int size, char **strs, char *sep)
+{
+	int		total_len;
+	int		i;
+	char	*result;
+
+	total_len = 0;
+	while (i < size)
+	{
+		total_len += ft_strlen(strs[i]);
+		i++;
+	}
+	total_len += ft_strlen (sep) + 1;
+	result = (char *)malloc (total_len * sizeof (char));
+	if (!result)
+	{
+		return (NULL);
+	}
+	result = ft_calvalue (strs, result, sep, size);
+	return (result);
+}
+
+/*int main () {
    
 	 char **strs;
 	 int size = 3;
@@ -93,4 +92,4 @@ int main () {
 
 	 printf("%s$\n", result);
 	 free(result);
-}
+}*/

@@ -6,51 +6,49 @@
 /*   By: pchowdhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 13:20:29 by pchowdhu          #+#    #+#             */
-/*   Updated: 2023/08/15 13:52:16 by pchowdhu         ###   ########.fr       */
+/*   Updated: 2023/08/16 19:34:12 by pchowdhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
-int str_len(char *str){
+int	str_len(char *str)
+{
 	int	i;
 
 	i = 0;
-
-	while(str[i]){
+	while (str[i])
+	{
 		i++;
 	}
 	return (0);
 }
 
-char *ft_strdup(char *src){
-	
-	int i ;
-	int len;
+char	*ft_strdup(char *src)
+{
+	int		i;
+	int		len;
+	char	*tab;
 
-	char *d;
-	char *tab;
-
-	len = str_len(src) + 1;
-
-      d = (tab = (char *)malloc(len * sizeof(char)));
-
-    if(!d){
-	  return (0);
-    }
-    while (src[i]){
-	    tab[i] = src[i];
-	    i++;
-    }
-    tab[i]= '\0';
-
-    return(tab);
+	i = 0;
+	len = str_len (src) + 1;
+	tab = (char *)malloc (len * sizeof (char));
+	if (!tab)
+	{
+		return (0);
+	}
+	while (src[i])
+	{
+		tab[i] = src[i];
+		i++;
+	}
+	tab[i] = '\0';
+	return (tab);
 }
 
-
-
-int main () {
+/*int main () {
 	char	*allocate;
 	char	str[] = "42 It";
         int i = 0;
@@ -59,4 +57,4 @@ int main () {
     printf("%c", allocate[i]);
         i++;
     }
-}
+}*/
