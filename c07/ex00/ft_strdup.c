@@ -6,7 +6,7 @@
 /*   By: pchowdhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 13:20:29 by pchowdhu          #+#    #+#             */
-/*   Updated: 2023/08/16 19:34:12 by pchowdhu         ###   ########.fr       */
+/*   Updated: 2023/08/22 19:42:35 by pchowdhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ char	*ft_strdup(char *src)
 	char	*tab;
 
 	i = 0;
-	len = str_len (src) + 1;
-	tab = (char *)malloc (len * sizeof (char));
+	len = str_len (src);
+	tab = (char *)malloc (len * sizeof (char) + 1);
 	if (!tab)
 	{
 		return (0);
@@ -50,7 +50,7 @@ char	*ft_strdup(char *src)
 
 /*int main () {
 	char	*allocate;
-	char	str[] = "42 It";
+	char	str[] = "42 Itssdasdas ccwef";
         int i = 0;
     allocate = ft_strdup(str);
     while ( allocate[i]){

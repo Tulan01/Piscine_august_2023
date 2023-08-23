@@ -6,7 +6,7 @@
 /*   By: pchowdhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 14:10:45 by pchowdhu          #+#    #+#             */
-/*   Updated: 2023/08/13 16:02:47 by pchowdhu         ###   ########.fr       */
+/*   Updated: 2023/08/17 16:59:40 by pchowdhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_is_prime(int nb)
 	}
 	if (nb > 1)
 	{
-		while (i <= nb / 2)
+		while (i < 47000 && i <= nb / 2)
 		{
 			if (nb % i == 0)
 			{
@@ -39,5 +39,5 @@ int	ft_is_prime(int nb)
 /*#include<stdio.h>
 int main () {
  	
-  printf("for %d -> %d ", 7, ft_is_prime(9));
+  printf("for %d -> %d ", 7, ft_is_prime(2147483647));
 }*/

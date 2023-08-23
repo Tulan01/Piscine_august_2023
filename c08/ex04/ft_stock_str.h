@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   ft_stock_str.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pchowdhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/12 18:56:50 by pchowdhu          #+#    #+#             */
-/*   Updated: 2023/08/17 17:05:01 by pchowdhu         ###   ########.fr       */
+/*   Created: 2023/08/22 20:03:37 by pchowdhu          #+#    #+#             */
+/*   Updated: 2023/08/22 20:40:31 by pchowdhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_factorial(int nb)
+#ifndef FT_STOCK_STR_H
+# define FT_STOCK_STR_H
+ 
+typedef struct s_stock_str
 {
-	int	result;
+	int	size;
+	char	*str;
+	char	*copy;
+}		t_stock_str;
 
-	result = 1;
-	if (nb < 0)
-	{
-		return (0);
-	}
-	if (nb > 0)
-	{
-		result = nb * ft_recursive_factorial (nb - 1);
-	}
-	return (result);
-}
-
-/*#include<stdio.h>
-
-int main () {
-
-printf("%d", ft_recursive_factorial(3));
-
-}*/
+#endif

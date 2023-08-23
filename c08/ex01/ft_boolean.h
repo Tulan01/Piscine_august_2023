@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   ft_boolean.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pchowdhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/12 18:56:50 by pchowdhu          #+#    #+#             */
-/*   Updated: 2023/08/17 17:05:01 by pchowdhu         ###   ########.fr       */
+/*   Created: 2023/08/19 16:24:03 by pchowdhu          #+#    #+#             */
+/*   Updated: 2023/08/22 15:57:15 by pchowdhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_factorial(int nb)
-{
-	int	result;
+#ifndef FT_BOOLEAN_H
+# define FT_BOOLEAN_H
 
-	result = 1;
-	if (nb < 0)
-	{
-		return (0);
-	}
-	if (nb > 0)
-	{
-		result = nb * ft_recursive_factorial (nb - 1);
-	}
-	return (result);
-}
+# include <unistd.h>
 
-/*#include<stdio.h>
+typedef enum a_bool{
+	false = 0,
+	true = 1,
+}	t_bool;
 
-int main () {
-
-printf("%d", ft_recursive_factorial(3));
-
-}*/
+# define FALSE false
+# define TRUE true
+# define EVEN(number) (number % 2 == 0)
+# define EVEN_MSG "I have an even number of arguments.\n"
+# define ODD_MSG "I have an odd number of arguments.\n"
+# define SUCCESS 0
+#endif

@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   ft.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pchowdhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/12 18:56:50 by pchowdhu          #+#    #+#             */
-/*   Updated: 2023/08/17 17:05:01 by pchowdhu         ###   ########.fr       */
+/*   Created: 2023/08/19 16:19:42 by pchowdhu          #+#    #+#             */
+/*   Updated: 2023/08/19 16:19:54 by pchowdhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_factorial(int nb)
-{
-	int	result;
+#ifndef FT_H
+# define FT_H
 
-	result = 1;
-	if (nb < 0)
-	{
-		return (0);
-	}
-	if (nb > 0)
-	{
-		result = nb * ft_recursive_factorial (nb - 1);
-	}
-	return (result);
-}
+void	ft_putchar(char c);
+void	ft_swap(int *a, int *b);
+void	ft_putstr(char *str);
+int		ft_strlen(char *str);
+int		ft_strcmp(char *s1, char *s2);
 
-/*#include<stdio.h>
-
-int main () {
-
-printf("%d", ft_recursive_factorial(3));
-
-}*/
+#endif
